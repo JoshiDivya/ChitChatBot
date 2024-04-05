@@ -43,7 +43,7 @@ export default function ChatPage() {
         <ChatSidebar></ChatSidebar>
         <div className="bg-gray-700 flex flex-col">
           <div className="flex-1">
-            {choices && choices.map(choice => {return <p>{choice}</p> })}
+            {choices && choices.map((choice,index) => {return <p key={index}>{choice}</p> })}
           </div>
           <footer className="bg-gray-800 p-10 ">
             <form onSubmit={handleSubmit}>
