@@ -25,10 +25,15 @@ export default async function handler(req, res) {
         returnDocument: "after",
       }
     );
-    res
-      .status(200)
-      .json({ chat: { ...chatData.value, _id: chatData.value._id.toString() } });
+    console.log("chatDATA",chatData);
+    res.status(200).json({
+      chat: {
+       messages: chatData.messages,
+        _id: chatData._id.toString(),
+      },
+    });
   } catch (error) {
+    console.log("ERROR",error);
     res.status(500).json({
       message: "An error occured when adding a message in chat",
       error: error,
